@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="vue.js" type="application/javascript"></script>
+		<title></title>
+	</head>
+	<style type="text/css">
+		#app {
+			background: red;
+			height: 12.5rem;
+			width: 12.5rem;
+		}
+		.content {
+			text-align: center;
+			line-height: 12.5rem;
+		}
+		.head {
+			font-family: "bodoni mt black";
+			font-size: large;
+		}
+		.title {
+			font-family: "bodoni mt black";
+			font-size: small;
+		}
+	</style>
+	<body>
+		<div id="app">
+			<p class="content"  v-bind:class="font">I am {{name}} ！</p>
+			<button type="button" v-on:click="change">change</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				name:'superman',
+				font:'head'
+			},
+			methods:{
+				change:function(){
+					let bg = this.$el.style.background;
+					if(bg === 'lawngreen'){this.$el.style.background = 'red';}
+					else{this.$el.style.background = 'lawngreen'}
+					if(this.name == 'batman'){this.name = 'superman'}
+					else{this.name = 'batman'}
+					if(this.font == 'title'){this.font = 'head'}
+					else{this.font = 'title'}
+				}
+			}
+		})
+	</script>
+</html>
